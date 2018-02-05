@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">System Plus Assignment</string>
+    <string name="system_plus">SYSTEM+</string>
+    <string name="latest">Latest Movies</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="popular">Popular Movies</string>
+    <string name="top_rated">Top Rated Movies</string>
+    <string name="upcoming">Upcoming Movies</string>
+    <string name="About">About</string>
+    <string name="error">Error</string>
+
+</resources>

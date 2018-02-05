@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:textSize="40sp"-->
+    <!--android:text="@string/system_plus" android:gravity="center"-->
+    <!--android:layout_centerInParent="true"/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_zero"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_zero" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_one"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_one" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_two"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_two" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_three"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_three" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_four"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_four" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_five"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_five" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_six"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_six" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_seven"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_seven" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_eight"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_eight" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_nine"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_nine" />-->
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_frame_ten"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:background="@color/black"-->
+        <!--android:src="@drawable/frame_ten" />-->
+    <ImageView
+        android:id="@+id/iv_frame_eleven"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/black"
+        android:src="@drawable/frame_four"
+        android:layout_margin="24dp"/>
+</RelativeLayout>
