@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.widget.Toast;
+
 import com.amit.systemplusassignment.R;
 import com.amit.systemplusassignment.model.MovieModel;
 import com.android.volley.NetworkError;
@@ -35,13 +37,15 @@ import io.reactivex.disposables.Disposable;
 
 public class MoviesListActivity extends AppCompatActivity {
 
-    private  RecyclerView recyclerViewMovieList;
+    private SearchView searchView;
+    private RecyclerView recyclerViewMovieList;
     private MovieListAdapter movieListAdapter;
     private Disposable disposable;
     private Context context;
     private List<MovieModel> movieModelList;
     MovieModel movieModel;
     Observable<List<MovieModel>> listObservable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +56,11 @@ public class MoviesListActivity extends AppCompatActivity {
 
     }
 
-    private void configureLayout()
-    {
+
+    private void configureLayout() {
         setContentView(R.layout.activity_movies_list);
         context = this;
+        searchView = findViewById(R.id.search_view);
         recyclerViewMovieList = findViewById(R.id.recycler_view_movie);
         recyclerViewMovieList.setHasFixedSize(true);
         recyclerViewMovieList.setLayoutManager(new GridLayoutManager(context, 2));
@@ -67,49 +72,65 @@ public class MoviesListActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        if (intent.hasExtra("now playing"))
-        {
+        if (intent.hasExtra("now playing")) {
             createObservableNowPlaying();
-        }
-        else if (intent.hasExtra("popular"))
-        {
+        } else if (intent.hasExtra("popular")) {
             createObservablePopular();
-        }
-        else if (intent.hasExtra("top rated"))
-        {
+        } else if (intent.hasExtra("top rated")) {
             createObservableTopRated();
-        }
-        else if (intent.hasExtra("upcoming"))
-        {
+        } else if (intent.hasExtra("upcoming")) {
             createObservableUpcoming();
         }
+
+      search(searchView);
+
+
     }
 
     private void createObservableNowPlaying() {
 
         listObservable = Observable.just(getNowPlayingMovieList());
+
     }
+
     private void createObservablePopular() {
 
         listObservable = Observable.just(getPopularMovieList());
     }
+
     private void createObservableTopRated() {
 
         listObservable = Observable.just(getTopRatedMovieList());
 
     }
+
     private void createObservableUpcoming() {
 
         listObservable = Observable.just(getUpcomingMovieList());
 
     }
 
+    private void search(SearchView searchView) {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                movieListAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+    }
 
 
-
-    public  List<MovieModel> getNowPlayingMovieList()
-    {
-       final ProgressDialog pDialog = new ProgressDialog(context);
+    public List<MovieModel> getNowPlayingMovieList() {
+        final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
         String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=f5542fa3768ac7f29fd0629ce7b4463d&language=en-US&page=1";
@@ -123,12 +144,12 @@ public class MoviesListActivity extends AppCompatActivity {
                             JSONArray newsArray = obj.getJSONArray("results");
                             for (int i = 0; i < newsArray.length(); i++) {
                                 JSONObject newsObject = newsArray.getJSONObject(i);
-                                movieModel = new MovieModel(newsObject.getString("title") , newsObject.getString("release_date")
-                                , "http://image.tmdb.org/t/p/w500" + newsObject.getString("poster_path"));
+                                movieModel = new MovieModel(newsObject.getString("title"), newsObject.getString("release_date")
+                                        , "http://image.tmdb.org/t/p/w500" + newsObject.getString("poster_path"));
                                 movieModelList.add(movieModel);
                                 movieListAdapter.notifyDataSetChanged();
                                 VolleyLog.d("Data", response);
-                               disposable = listObservable.subscribe(movieModelListß -> movieListAdapter.setMovieModelList(movieModelList));
+                                disposable = listObservable.subscribe(movieModelListß -> movieListAdapter.setMovieModelList(movieModelList));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -166,8 +187,7 @@ public class MoviesListActivity extends AppCompatActivity {
 
     }
 
-    public  List<MovieModel> getPopularMovieList()
-    {
+    public List<MovieModel> getPopularMovieList() {
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -182,7 +202,7 @@ public class MoviesListActivity extends AppCompatActivity {
                             JSONArray newsArray = obj.getJSONArray("results");
                             for (int i = 0; i < newsArray.length(); i++) {
                                 JSONObject newsObject = newsArray.getJSONObject(i);
-                                movieModel = new MovieModel(newsObject.getString("title") , newsObject.getString("release_date")
+                                movieModel = new MovieModel(newsObject.getString("title"), newsObject.getString("release_date")
                                         , "http://image.tmdb.org/t/p/w500" + newsObject.getString("poster_path"));
                                 movieModelList.add(movieModel);
                                 movieListAdapter.notifyDataSetChanged();
@@ -224,8 +244,8 @@ public class MoviesListActivity extends AppCompatActivity {
         return movieModelList;
 
     }
-    public  List<MovieModel> getTopRatedMovieList()
-    {
+
+    public List<MovieModel> getTopRatedMovieList() {
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -240,7 +260,7 @@ public class MoviesListActivity extends AppCompatActivity {
                             JSONArray newsArray = obj.getJSONArray("results");
                             for (int i = 0; i < newsArray.length(); i++) {
                                 JSONObject newsObject = newsArray.getJSONObject(i);
-                                movieModel = new MovieModel(newsObject.getString("title") , newsObject.getString("release_date")
+                                movieModel = new MovieModel(newsObject.getString("title"), newsObject.getString("release_date")
                                         , "http://image.tmdb.org/t/p/w500" + newsObject.getString("poster_path"));
                                 movieModelList.add(movieModel);
                                 movieListAdapter.notifyDataSetChanged();
@@ -282,8 +302,8 @@ public class MoviesListActivity extends AppCompatActivity {
         return movieModelList;
 
     }
-    public  List<MovieModel> getUpcomingMovieList()
-    {
+
+    public List<MovieModel> getUpcomingMovieList() {
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -298,7 +318,7 @@ public class MoviesListActivity extends AppCompatActivity {
                             JSONArray newsArray = obj.getJSONArray("results");
                             for (int i = 0; i < newsArray.length(); i++) {
                                 JSONObject newsObject = newsArray.getJSONObject(i);
-                                movieModel = new MovieModel(newsObject.getString("title") , newsObject.getString("release_date")
+                                movieModel = new MovieModel(newsObject.getString("title"), newsObject.getString("release_date")
                                         , "http://image.tmdb.org/t/p/w500" + newsObject.getString("poster_path"));
                                 movieModelList.add(movieModel);
                                 movieListAdapter.notifyDataSetChanged();
@@ -340,11 +360,14 @@ public class MoviesListActivity extends AppCompatActivity {
         return movieModelList;
 
     }
+
     @Override
     protected void onStop() {
         super.onStop();
-        if (disposable!=null && !disposable.isDisposed()) {
+        if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
         }
     }
+
+
 }

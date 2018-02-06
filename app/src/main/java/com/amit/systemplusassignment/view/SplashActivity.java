@@ -20,7 +20,7 @@ public class SplashActivity extends Activity
 //            ivFrameFour = null, ivFrameFive = null,ivFrameSix = null,ivFrameSeven = null,
 //            ivFrameEight = null, ivFrameNine = null,ivFrameTen = null,ivFrameEleven = null;
 
-    Animation animationBlink = null, animationFadeIn = null;
+//    Animation animationBlink = null, animationFadeIn = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,18 +50,7 @@ public class SplashActivity extends Activity
             public void run()
             {
                 try {
-//                    ivFrameZero.startAnimation(animationBlink);
-//                    ivFrameOne .startAnimation(animationBlink);
-//                    ivFrameTwo.startAnimation(animationBlink);
-//                    ivFrameThree.startAnimation(animationBlink);
-//                    ivFrameFour.startAnimation(animationBlink);
-//                    ivFrameFive.startAnimation(animationBlink);
-//                    ivFrameSix.startAnimation(animationBlink);
-//                    ivFrameSeven.startAnimation(animationBlink);
-//                    ivFrameEight.startAnimation(animationBlink);
-//                    ivFrameNine.startAnimation(animationBlink);
-//                    ivFrameTen.startAnimation(animationBlink);
-//                    ivFrameEleven.startAnimation(animationBlink);
+
 
 //                    ivFrameZero.startAnimation(animationFadeIn);
 //                    ivFrameOne .startAnimation(animationFadeIn);
