@@ -1,37 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
     android:orientation="vertical"
-    android:padding="12dp"
+    android:padding="8dp"
     android:weightSum="4"
     tools:context="com.amit.systemplusassignment.view.MainActivity">
+    
 
-    <!--<LinearLayout-->
-    <!--android:id="@+id/ll_latest"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:background="@drawable/border_black">-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:gravity="center"-->
-    <!--android:text="@string/latest" />-->
-    <!--</LinearLayout>-->
-
-    <LinearLayout
-        android:id="@+id/ll_now_playing"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_now_playing"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:layout_weight="1"
-        android:background="@drawable/border_black">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -41,15 +28,16 @@
             android:text="@string/now_playing"
             android:textColor="@color/menuBlue"
             android:textSize="24sp" />
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:id="@+id/ll_popular"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_popular"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:layout_weight="1"
-        android:background="@drawable/border_black">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -59,15 +47,16 @@
             android:text="@string/popular"
             android:textColor="@color/menuBlue"
             android:textSize="24sp" />
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:id="@+id/ll_top_rated"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_top_rated"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:layout_weight="1"
-        android:background="@drawable/border_black">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -77,15 +66,16 @@
             android:text="@string/top_rated"
             android:textColor="@color/menuBlue"
             android:textSize="24sp" />
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:id="@+id/ll_upcoming"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_upcoming"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:layout_weight="1"
-        android:background="@drawable/border_black">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -95,5 +85,5 @@
             android:text="@string/upcoming"
             android:textColor="@color/menuBlue"
             android:textSize="24sp" />
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

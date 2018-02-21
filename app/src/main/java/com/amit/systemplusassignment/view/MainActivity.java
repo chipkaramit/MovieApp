@@ -3,6 +3,7 @@ package com.amit.systemplusassignment.view;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -10,7 +11,7 @@ import com.amit.systemplusassignment.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    LinearLayout linearLatest , linearPlaying , linearPopular , linearTopRated , linearUpcoming;
+    CardView  cardPlaying , cardPopular , cardTopRated , cardUpcoming;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,49 +19,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
        // linearLatest = findViewById(R.id.ll_latest);
-        linearPlaying = findViewById(R.id.ll_now_playing);
+        cardPlaying = findViewById(R.id.cv_now_playing);
 
-        linearPopular = findViewById(R.id.ll_popular);
-        linearTopRated = findViewById(R.id.ll_top_rated);
-        linearUpcoming = findViewById(R.id.ll_upcoming);
+        cardPopular = findViewById(R.id.cv_popular);
+        cardTopRated = findViewById(R.id.cv_top_rated);
+        cardUpcoming = findViewById(R.id.cv_upcoming);
         //linearLatest.setOnClickListener(this);
-        linearPlaying.setOnClickListener(this);
-        linearPopular.setOnClickListener(this);
-        linearTopRated.setOnClickListener(this);
-        linearUpcoming.setOnClickListener(this);
+        cardPlaying.setOnClickListener(this);
+        cardPopular.setOnClickListener(this);
+        cardTopRated.setOnClickListener(this);
+        cardUpcoming.setOnClickListener(this);
     }
 
     public void onClick(View v) {
 
         switch(v.getId()){
 
-//            case R.id.ll_latest:
-//                Intent intent = new Intent(this, MoviesListActivity.class);
-//                intent.putExtra("latest",1);
-//                this.startActivity(intent);
-//                break;
 
-            case R.id.ll_now_playing:
-                Intent intentPlaying = new Intent(this, MoviesListActivity.class);
-                intentPlaying.putExtra("now playing",2);
+            case R.id.cv_now_playing:
+                Intent intentPlaying = new Intent(this, MovieListActivity.class);
+                intentPlaying.putExtra("now playing",1);
                 this.startActivity(intentPlaying);
                 break;
 
-            case R.id.ll_popular:
-                Intent intentPopular = new Intent(this, MoviesListActivity.class);
-                intentPopular.putExtra("popular",3);
+            case R.id.cv_popular:
+                Intent intentPopular = new Intent(this, MovieListActivity.class);
+                intentPopular.putExtra("popular",2);
                 this.startActivity(intentPopular);
                 break;
 
-            case R.id.ll_top_rated:
-                Intent intentTopRated = new Intent(this, MoviesListActivity.class);
-                intentTopRated.putExtra("top rated",4);
+            case R.id.cv_top_rated:
+                Intent intentTopRated = new Intent(this, MovieListActivity.class);
+                intentTopRated.putExtra("top rated",3);
                 this.startActivity(intentTopRated);
                 break;
 
-            case R.id.ll_upcoming:
-                Intent intentUpcoming = new Intent(this, MoviesListActivity.class);
-                intentUpcoming.putExtra("upcoming",5);
+            case R.id.cv_upcoming:
+                Intent intentUpcoming = new Intent(this, MovieListActivity.class);
+                intentUpcoming.putExtra("upcoming",4);
                 this.startActivity(intentUpcoming);
                 break;
         }

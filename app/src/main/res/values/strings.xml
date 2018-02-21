@@ -8,5 +8,8 @@
     <string name="upcoming">Upcoming Movies</string>
     <string name="About">About</string>
     <string name="error">Error</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search by Name,Year</string>
+    <string name="activity_details">Movie Details</string>
 
 </resources>
